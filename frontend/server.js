@@ -13,6 +13,6 @@ app.get("*", (req, res) => {
 
 // 서버 실행
 const PORT = 5500;
-app.listen(PORT, '0.0.0.0', () => {
+app.listen(PORT, () => {
   console.log(`Frontend server is running at http://localhost:${PORT}`);
 });

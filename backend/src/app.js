@@ -43,42 +43,7 @@ const cookieParser = require("cookie-parser")
 // 모든 출처 허용
 app.use(cors());
 
-// ✅ CORS 설정 (Preflight OPTIONS 요청 포함)
-app.use(
-  cors({
-    origin: "http://stai.kr",  // 정확한 프론트엔드 도메인 명시
-    credentials: true,          // 인증 정보(쿠키 등) 허용
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],  // OPTIONS 요청 허용
-    allowedHeaders: [
-      "Content-Type", 
-      "Authorization",
-      "X-Requested-With",
-      "Accept"
-    ],  // 요청에서 허용할 헤더 명시
-  })
-);
-
-// ✅ Preflight OPTIONS 요청을 명시적으로 허용
-app.options("*", (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://stai.kr");
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With, Accept");
-  res.sendStatus(204); // No Content
-});
-
-// ✅ 기존 미들웨어 정리 후, 새로운 CORS 미들웨어 적용
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://stai.kr");
-  res.header("Access-Control-Allow-Credentials", "true");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-
-  if (req.method === "OPTIONS") {
-    return res.status(204).send();
-  }
-  next();
-});
+app.use(cors({ origin: 'http://stai.kr' }));
 
 app.use(cookieParser())
 // app.use(methodOverride("_method"));
@@ -97,6 +62,6 @@ app.use("/", require("./routes/chatRoutes"))
 const port = 8008
 
 
-app.listen(port, "0.0.0.0", () => {
+app.listen(port, () => {
   console.log(`ARA-BE 서버가 ${port} 포트에서 실행 중`);
 });
