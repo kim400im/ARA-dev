@@ -63,7 +63,14 @@ app.use(
 );
 
 // Preflight 요청(OPTIONS) 허용
-app.options("*", cors());
+// ✅ Preflight OPTIONS 요청을 명시적으로 허용
+app.options("*", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://stai.kr");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With, Accept");
+  res.sendStatus(204); // No Content
+});
 
 // app.use("/", require("./routes/mainRoutes"))
 app.use("/auth", require("./routes/authRoutes"))

@@ -8,10 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # 4. npm 패키지 설치 (캐싱 최적화)
-RUN npm config set registry https://registry.npmjs.org/ \
-    && npm cache clean --force \
-    && npm install --omit=dev
-
+RUN npm install
 # 5. 소스 코드 복사
 COPY . .
 
