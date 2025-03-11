@@ -52,8 +52,18 @@ app.use(
   cors({
     origin: 'http://stai.kr', // 허용할 출처
     credentials: true, // 쿠키 허용
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // 허용할 메서드 추가
+    allowedHeaders: [
+      "Content-Type", 
+      "Authorization",
+      "X-Requested-With",
+      "Accept"
+    ],  // 추가할 헤더
   })
 );
+
+// Preflight 요청(OPTIONS) 허용
+app.options("*", cors());
 
 // app.use("/", require("./routes/mainRoutes"))
 app.use("/auth", require("./routes/authRoutes"))
