@@ -39,12 +39,6 @@ const cookieParser = require("cookie-parser")
 // app.use(expressLayouts);
 // app.use(express.static(path.join(__dirname, "public")));
 
-app.use(cookieParser())
-// app.use(methodOverride("_method"));
-// Middleware
-app.use(bodyParser.json());
-app.use(express.urlencoded({ extended: true }));
-
 // CORS 설정 추가
 // 모든 출처 허용
 app.use(cors());
@@ -85,6 +79,14 @@ app.use((req, res, next) => {
   }
   next();
 });
+
+app.use(cookieParser())
+// app.use(methodOverride("_method"));
+// Middleware
+app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+
+
 
 // app.use("/", require("./routes/mainRoutes"))
 app.use("/auth", require("./routes/authRoutes"))
