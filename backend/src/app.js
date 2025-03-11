@@ -41,7 +41,7 @@ const cookieParser = require("cookie-parser")
 
 // CORS 설정 추가
 // 모든 출처 허용
-app.use(cors());
+// app.use(cors());
 
 app.use(cors({ origin: 'http://stai.kr' }));
 
