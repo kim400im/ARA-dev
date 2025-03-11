@@ -1,0 +1,255 @@
+/* 채팅 헤더, 채팅 입력, 메시지 등 채팅 관련 스타일 */
+
+/* chat.scss */
+/* CHAT HEADER */
+.chat-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 70px;
+	padding: 15px;
+	box-sizing: border-box;
+	flex-shrink: 0;
+	transition: padding-left 0.3s ease;
+}
+
+.header-logo-button {
+	display: flex;
+	align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+	transition: all 0.5s ease;
+}
+
+.header-logo-button.expanded {
+  position: fixed;
+  top: 10px; /* 토글 버튼과 같은 상단 위치 */
+  left: 74px;
+}
+
+.ara-logo {
+	width: 50px;
+	height: 50px;
+	transition: transform 0.3s ease;
+}
+
+.header-logo-placeholder {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+}
+
+.chat-header .btn-group {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.share-icon {
+	cursor: pointer;
+	display: flex;
+	width: 30px;
+	height: 30px;
+}
+
+.user-icon {
+	cursor: pointer;
+	display: flex;
+	width: 38px;
+	height: 38px;
+	margin-right: 10px;
+}
+
+/* CHAT Content */
+.chat-content {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	overflow: auto;
+}
+
+.chat-description {
+	margin-bottom: 20px;
+	text-align: center;
+	transition: height 0.5s ease, opacity 0.5s ease;
+	overflow: hidden;
+}
+
+.chat-description.hide {
+	height: 0;
+	opacity: 0;
+	pointer-events: none;
+	display: none;
+}
+
+.chat-description-text {
+	font-size: 25px;
+	font-weight: 700;
+	color: black;
+}
+
+.chat-input {
+	position: relative;
+	width: 80%;
+	max-width: 600px;
+	margin: 0 auto 10px;
+	display: flex;
+	align-items: center;
+	transition: all 0.8s ease;
+}
+
+.chat-input.down {
+	position: absolute;
+	bottom: 20px;
+}
+
+#message-input {
+	flex: 1;
+	min-height: 50px;
+	padding: 15px 40px 15px 15px;
+	border: none;
+	border-radius: 17px;
+	background-color: #f0f0f0;
+	font-size: 14px;
+	resize: none;
+	box-sizing: border-box;
+	outline: none;
+}
+
+.send-button {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor: pointer;
+	color: #333;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	background-color: transparent;
+}
+
+.send-button .material-icons {
+	color: #333;
+	font-size: 28px;
+	transform: rotate(-40deg);
+}
+
+.send-button:disabled {
+	opacity: 0.5;
+	cursor: default;
+}
+
+.chat-actions {
+	display: flex;
+	gap: 10px;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.chat-actions button {
+	border: 1.2px solid #282C72;
+	border-radius: 30px;
+	width: 130px;
+	margin-top: 10px;
+	background-color: #f0f0f0;
+	color: #282C72;
+	font-weight: 700;
+	padding: 4px;
+	cursor: pointer;
+	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chat-actions button:hover {
+	background-color: #282c72cc;
+	color: #fff;
+}
+
+.chat-actions.hide {
+	height: 0;
+	opacity: 0;
+	pointer-events: none;
+	display: none;
+}
+
+.chat-messages {
+	width: 100%;
+	padding-bottom: 100px;
+	overflow-y: auto;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	align-items: flex-start;
+}
+
+.message {
+	background-color: #f0f0f0;
+	padding: 10px 20px;
+	border-radius: 35px;
+	line-height: 1.4;
+	font-size: 14px;
+	max-width: 500px;
+	word-wrap: break-word;
+	margin: 3px 0;
+}
+
+.user-message {
+	align-self: flex-end;
+	background-color: #f0f0f0;
+	margin-right: 200px;
+}
+
+.bot-message {
+	background-color: transparent;
+	color: #000;
+	align-self: flex-start;
+	margin-left: 180px;
+	// white-space: pre-wrap;  /* 줄바꿈 유지 */
+}
+
+/* 마크다운 스타일링 */
+.bot-message h1 {
+	font-size: 2em;
+	font-weight: bold;
+	margin: 1em 0;
+  }
+  
+  .bot-message h2 {
+	font-size: 1.5em;
+	font-weight: bold;
+	margin: 0.8em 0;
+  }
+  
+  .bot-message ul {
+	margin: 1em 0;
+	padding-left: 2em;
+  }
+  
+  .bot-message li {
+	list-style-type: disc;
+	margin: 0.5em 0;
+  }
+  
+  .bot-message code {
+	background-color: #f5f5f5;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-family: monospace;
+  }
+  
+  .bot-message strong {
+	font-weight: bold;
+  }
+  
+  .bot-message p {
+	margin: 1em 0;
+  }

@@ -1,0 +1,16 @@
+/* 글로벌 리셋 및 기본 스타일 */
+
+/* base.scss */
+body {
+	font-family: "Noto Sans KR", sans-serif;
+	color: #333;
+	font-size: 16px;
+	line-height: 1.4;
+	background-color: #fff;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}

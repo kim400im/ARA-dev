@@ -1,0 +1,135 @@
+/* 채팅방 리스트 및 파일 리스트 관련 스타일 */
+
+/* side-list.scss */
+.file-list .file-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 2px;
+}
+
+.file-list .file-item span {
+	font-size: 12px;
+	color: #333;
+}
+
+.file-list .file-item button {
+	color: #333;
+	background-color: transparent;
+	border: none;
+	border-radius: 4px;
+	padding: 4px;
+	cursor: pointer;
+	font-size: 12px;
+}
+
+.file-list .file-item button:hover {
+	background-color: #eee;
+}
+
+.add-btn {
+	border: none;
+	border-radius: 25px;
+	background-color: #eee;
+	padding: 4px 15px;
+	font-weight: 700;
+	color: #333;
+	display: block;
+	margin: 2px auto;
+	cursor: pointer;
+	text-align: center;
+}
+
+.add-btn:hover {
+	background-color: #282C72cc;
+	color: #fff;
+}
+
+.chats-list>ul>li {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 5px;
+	margin-right: 10px;
+	font-size: 14px;
+	border-radius: 9px;
+	color: #000;
+	cursor: pointer;
+}
+
+.chat-more-button {
+	border: none;
+	background-color: transparent;
+	border-radius: 8px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: auto;
+	outline: none;
+	padding: 2px;
+}
+
+.chat-more-button .material-icons {
+	color: #cccccc;
+	transition: 0.2s;
+}
+
+.chat-more-button .material-icons:hover {
+	color: #333;
+}
+
+/* 채팅방 더보기 팝업 */
+.popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+}
+
+.popup.hidden {
+	display: none;
+}
+
+.popup-content {
+	background-color: #fff;
+	padding: 15px;
+	border-radius: 10px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	text-align: left;
+	min-width: 250px;
+}
+
+.popup-content>#save-rename,
+.popup-content>#delete-chat {
+	width: 100%;
+	margin: 5px 0;
+	padding: 10px;
+	background-color: #282C72;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.popup-content>#close-popup {
+	width: 100%;
+	margin: 5px 0;
+	padding: 10px;
+	background-color: #ccc;
+	color: #333;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.popup-content>#save-rename:hover,
+.popup-content>#delete-chat:hover {
+	background-color: #1f244a;
+}
