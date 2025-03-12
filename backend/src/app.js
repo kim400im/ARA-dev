@@ -43,14 +43,14 @@ const cookieParser = require("cookie-parser")
 // 모든 출처 허용
 // app.use(cors());
 
-// app.use(cors({ origin: 'http://stai.kr' }));
+app.use(cors({ origin: 'http://stai.kr' }));
 
-app.use(cors({
-  origin: "http://stai.kr", // 프론트엔드 주소
-  credentials: true,  // 쿠키를 포함한 요청 허용
-  allowedHeaders: ["Content-Type", "Authorization"],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-}));
+// app.use(cors({
+//   origin: "http://stai.kr", // 프론트엔드 주소
+//   credentials: true,  // 쿠키를 포함한 요청 허용
+//   allowedHeaders: ["Content-Type", "Authorization"],
+//   methods: ["GET", "POST", "PUT", "DELETE"],
+// }));
 
 app.use(cookieParser())
 // app.use(methodOverride("_method"));
