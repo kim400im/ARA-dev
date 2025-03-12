@@ -92,7 +92,7 @@ router.post("/chat/new", authenticateToken, async (req, res) => {
     // 봇 응답 생성 및 저장
     //const botMessage = generateBotResponse(message); // 봇 응답 생성 
     // LLM 서버 요청
-    const llmResponse = await axios.post("http://localhost:8000/process_normal", {
+    const llmResponse = await axios.post("http://llm.stai.kr/process_normal", {
       question: message,
     }, {
       headers: { "Content-Type": "application/json" },
