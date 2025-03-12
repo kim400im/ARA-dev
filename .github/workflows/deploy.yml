@@ -21,6 +21,11 @@ jobs:
           script: |
             cd ~/ara/ARA-dev
             git pull origin main  # 최신 코드 가져오기
+
+             # .env 파일이 없으면 GitHub Secrets에서 가져와 생성
+            echo "${{ secrets.SERVER_BACKEND_ENV }}" > backend/.env
+            echo "${{ secrets.SERVER_LLM_ENV }}" > llm/.env
+            
             docker-compose down  # 기존 컨테이너 중지
             docker-compose build --no-cache  # 새 컨테이너 빌드
             docker-compose up -d  # 컨테이너 실행
