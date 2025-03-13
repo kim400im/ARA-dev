@@ -24,7 +24,7 @@ export async function fetchUserInfo(token) {
     // userInfoId.textContent = `아이디: ${userInfo.userid}`;
     try {
       // 서버로 사용자 정보 요청
-      const response = await fetch("http://api.stai.kr/auth/user-info", {
+      const response = await fetch("https://api.stai.kr/auth/user-info", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -59,7 +59,7 @@ export async function handleLogin(userid, password) {
   }
 
   try {
-    const response = await fetch('http://api.stai.kr/auth/login', {
+    const response = await fetch('https://api.stai.kr/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ userid, password }),
@@ -91,7 +91,7 @@ export async function handleLogout() {
   console.log('token before logout is ', token);
 
   try {
-    const response = await fetch("http://api.stai.kr/auth/logout", {
+    const response = await fetch("https://api.stai.kr/auth/logout", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`, // 쿠키 포함
