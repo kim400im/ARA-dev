@@ -7,7 +7,7 @@ let chatDescText = chatDescription.querySelector('.chat-description-text');
 export async function createNewChatRoom() {
   try {
     const token = localStorage.getItem("token");
-    const response = await fetch("http://api.stai.kr/chat/new", {
+    const response = await fetch("https://api.stai.kr/chat/new", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -112,7 +112,7 @@ export function initializeChatManagement() {
       selectedChat.firstChild.textContent = newTitle + ' ';
       renameInput.value = '';
       try {
-        const response = await fetch(`http://api.stai.kr/api/chatroom/${selectedChatroomId}`, {
+        const response = await fetch(`https://api.stai.kr/api/chatroom/${selectedChatroomId}`, {
           method: "PUT",
           headers: {
             "Authorization": `Bearer ${token}`,
@@ -151,7 +151,7 @@ export function initializeChatManagement() {
     }
     if (selectedChat && confirm("정말로 이 채팅방을 삭제하시겠습니까?")) {
       try {
-        const response = await fetch(`http://api.stai.kr/api/chatroom/${selectedChatroomId}`, {
+        const response = await fetch(`https://api.stai.kr/api/chatroom/${selectedChatroomId}`, {
           method: "DELETE",
           headers: {
             "Authorization": `Bearer ${token}`,
@@ -231,7 +231,7 @@ export async function loadChatrooms() {
   }
 
   try {
-    const response = await fetch("http://api.stai.kr/api/chatrooms", {
+    const response = await fetch("https://api.stai.kr/api/chatrooms", {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${token}`,

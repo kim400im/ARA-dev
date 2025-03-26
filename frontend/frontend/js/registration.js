@@ -15,7 +15,7 @@ export function initializeRegistrationHandlers() {
     }
 
     try {
-      const response = await fetch('http://api.stai.kr/auth/register', {
+      const response = await fetch('https://api.stai.kr/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, userid, password }),

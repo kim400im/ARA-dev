@@ -95,7 +95,7 @@ export async function sendMessage() {
     const token = localStorage.getItem('token');
 
     // 서버 요청: 메시지 전송 및 (필요시) 새 채팅방 생성
-    const response = await fetch('http://api.stai.kr/chat/new', {
+    const response = await fetch('https://api.stai.kr/chat/new', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -194,7 +194,7 @@ export async function loadChatroomData() {
   }
 
   try {
-    const response = await fetch(`http://api.stai.kr/chatroom/${chatroomId}`, {
+    const response = await fetch(`https://api.stai.kr/chatroom/${chatroomId}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
