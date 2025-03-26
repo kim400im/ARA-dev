@@ -63,7 +63,7 @@ export async function handleLogin(userid, password) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ userid, password }),
-      credentials: "include", // 쿠키를 활성화
+      credentials: "include", // 쿠키를 활성화시킴
     });
 
     const result = await response.json();
