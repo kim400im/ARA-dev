@@ -3,11 +3,10 @@ FROM node:20-alpine
 WORKDIR /app
 
 COPY package*.json ./
-
 RUN npm install
 
 COPY . .
 
-EXPOSE 3000
-
-CMD ["node", "server.js"]
+RUN npm install -g serve
+EXPOSE 5500
+CMD ["serve", "-s", ".", "-l", "5500"]
